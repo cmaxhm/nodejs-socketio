@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>NodeJs and Socket.io</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      // Emit data to server
+      socket.emit('user_data', {
+        username: 'cmaxhm',
+        email: 'cmaxhm@cmaxhm.com'
+      });
+
+      // Listen for server emits
+      socket.on('new_user', (response) => {
+        console.log('Response from the server', response.response);
+      });
+    </script>
+  </body>
+</html>
